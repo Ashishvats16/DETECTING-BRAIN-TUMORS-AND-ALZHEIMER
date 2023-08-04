@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <!-- <link rel="stylesheet" type="text/css" href="admin.css"> -->
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #F9E0BB;
+    }
+    
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    button {
+      padding: 5px 10px;
+      background-color: #fff;
+      color: #333;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #patientDetails {
+      margin-top: 20px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .view-button {
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+
+  <nav>
+    <div class="navbar">
+      <h1>Admin Panel</h1>
+      <button onclick="goBack()">Go Back</button>
+    </div>
+  </nav>
+
+  <div id="patientDetails">
+    <h2>Patient Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Username</th>
+          <th>Photo</th>
+          <th>ID Proof</th>
+          <th>Disease</th>
+          <th>MRI Scan</th>
+        </tr>
+      </thead>
+      <tbody id="patientTableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const patients = [
+      {
+        name: "Aman Yadav",
+        age: "35",
+        username: "AmanYadav",
+        photo: "Aman_photo.jpg",
+        idProof: "idproof1.jpg",
+        disease: "Alzheimer",
+        MRIscan: "Alzheimer.jpg",
+      },
+      {
+        name: "Nikhil Patwal",
+        age: "45",
+        username: "nikhilpatwal",
+        photo: "nikhil_photo.jpg",
+        idProof: "idproof2.jpg",
+        disease: "Brain Tumor",
+        MRIscan: "Brain_Tumor.jpg",
+      },
+      {
+        name: "Khushi Sharma",
+        age: "50",
+        username: "khushisharma",
+        photo: "khushi_photo.jpg",
+        idProof: "idproof2.jpg",
+        disease: "Alzheimer",
+        MRIscan: "Alzheimer.jpg",
+      },
+      {
+        name: "Ashish Sharma",
+        age: "55",
+        username: "ashishsharma",
+        photo: "ashish_photo.jpg",
+        idProof: "idproof2.jpg",
+        disease: "Brain Tumor",
+        MRIscan: "Brain_Tumor.jpg",
+      }
+    ];
+
+    function displayPatientDetails() {
+      const tableBody = document.getElementById("patientTableBody");
+      patients.forEach((patient, index) => {
+        const row = document.createElement("tr");
+
+        const nameCell = document.createElement("td");
+        nameCell.textContent = patient.name;
+        row.appendChild(nameCell);
+
+        const ageCell = document.createElement("td");
+        ageCell.textContent = patient.age;
+        row.appendChild(ageCell);
+
+        const usernameCell = document.createElement("td");
+        usernameCell.textContent = patient.username;
+        row.appendChild(usernameCell);
+
+        const photoCell = document.createElement("td");
+        const photoImg = document.createElement("img");
+        photoImg.src = patient.photo;
+        photoImg.alt = "Patient Photo";
+        photoCell.appendChild(photoImg);
+        row.appendChild(photoCell);
+
+        const idProofCell = document.createElement("td");
+        const idProofImg = document.createElement("img");
+        idProofImg.src = patient.idProof;
+        idProofImg.alt = "ID Proof";
+        idProofCell.appendChild(idProofImg);
+        row.appendChild(idProofCell);
+
+        const diseaseCell = document.createElement("td");
+        diseaseCell.textContent = patient.disease;
+        row.appendChild(diseaseCell);
+
+        const MRIscanCell = document.createElement("td");
+        const MRIscanImg = document.createElement("img");
+        MRIscanImg.src = patient.MRIscan;
+        MRIscanImg.alt = "MRI Scan";
+        MRIscanCell.appendChild(MRIscanImg);
+        row.appendChild(MRIscanCell);
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    displayPatientDetails();
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
