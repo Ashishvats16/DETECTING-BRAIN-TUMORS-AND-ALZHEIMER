@@ -1,2 +1,3 @@
 # DETECTING-BRAIN-TUMORS-AND-ALZHEIMER
 Developed an intelligent method for detecting and categorizing brain diseases such as Alzheimer’s disease (AD), tumors, and normal brain imaging, utilizing advanced technology and techniques to enhance the accuracy and sensitivity of early diagnosis.
+Committed to improving treatment procedures and patient care, with a focus on increasing the quality of imaging to support early identification of a wide spectrum of human illnesses, ranging from brain tumors to Alzheimer’s disease. Expertise in leveraging technology and biology to drive advancements in the surgical treatment and medical care of dementia and related conditions.
