@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.section1 {
+  background-image: url(../Images/Home1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #f1f1f1;
+  overflow: hidden;
+  background-image: url(../Images/Home.png);
+  height: 100%;
+  position: relative;
+  background-size: cover;
+}
+
+.topnav a {
+  float: right;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 26px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: #333;
+}
+
+.image {
+  background-image: url(../Images/Braincells.jpg);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.heading1 {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.para1 {
+  margin: 0;
+  position: absolute;
+  top: 55%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.casualties {
+  background-image:linear-gradient(to right, rgba(0, 0, 0, 2), rgba(255, 255, 255, 0.1)), url(../Images/Home2nd.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.heading2{
+  color: #ffffff;
+}
+
+.para2{
+  color: #ffffff;
+  
+}
+
+.purpose {
+  background-image:linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1)), url(../Images/Home3rd.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.heading3{
+  color: #ffffff;
+}
+
+.para3{
+  color: #ffffff;
+}
+
+.content.box1,
+.content.box2 {
+  border: 2px solid white transparent;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.technologies {
+  background-color: #F9E0BB;
+}
+
+.content {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+/* .content h1 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #333333;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 5px;
+} */
+
+
+  /* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+}
+
+footer p {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+
+  /* Technologies we used */
+.section_features {
+  position: relative;
+  background-image: linear-gradient(to right, rgba(182, 213, 111, 0.5), rgba(40, 180, 133, 0.8)), url(../../vendores/images/mountain.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.section_features h1 {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 35px;
+  color: #333;
+  text-align: center;
+  z-index: 1;
+}
+
+.inner_fea {
+  width: 90%;
+  position: absolute;
+  margin-top: 210px;
+  margin-left: 5%;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 50px 100px;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 50vh;
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  color: #575656;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: 0.4s;
+}
+
+.fea_head {
+  margin: 10px 0;
+  margin-top: 5px;
+  font-size: 15px;
+  /* text-transform: uppercase; */
+}
+
+.fea-text {
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.grid-item:hover {
+  transform: scale(1.1) translateY(-7px);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
