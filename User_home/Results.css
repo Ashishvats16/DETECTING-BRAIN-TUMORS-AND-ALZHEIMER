@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:beige;
+  }
+  
+  .navbar {
+    background-color: #5e5e5e;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .navbar h1 {
+    margin: 0;
+  }
+  
+  .photo-container {
+    text-align: center;
+    margin-top: 150px;
+  }
+  
+  .photo-container img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .photo-container p {
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 18px;
+  }

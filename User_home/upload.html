@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Your MRI scan</title>
+	<!-- <link rel="stylesheet" type="text/css" href="upload.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+	<link rel="shortcut icon" href="/assets/favicon.ico">
+    <meta
+    name="description"
+    content="Web site created using create-react-app"
+  />
+</head>
+<body>
+
+  <style>
+    /* Global styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+	background-color: #F9E0BB;
+	
+}
+
+.first{
+	background-image: url(../Images/bg.jpg);
+	background-position:center;
+	background-size: cover;
+	height: 50vh;
+	width: 100%;
+	margin-top: -20px;
+}
+
+.first-page h1{
+	text-align: center;
+	margin-top: -150px;
+	color: #ffffff;
+	flex: 1;
+ }
+
+/* Footer styles */
+
+.second-page{
+	background-color: #F9E0BB;
+	height: 10vh;
+	/* flex: 1; */
+}   
+
+.second_heading{
+	position: relative;
+	margin-top: -250px;
+	margin-left: 40px;
+	font-size: 30px;
+}
+
+.para{
+	margin-left: 40px;
+}
+  
+  .drop-zone {
+	max-width: 250px;
+	height: 200px;
+	padding: 25px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: "Quicksand", sans-serif;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+	color: #484848;
+	border: 4px dashed #009578;
+	border-radius: 10px;
+	margin-top: 200px;
+	margin-left: 150vh;
+} 
+
+.drop-zone--over {
+	border-style: solid;
+}
+
+.drop-zone__input {
+	display: none;
+}
+
+.drop-zone__thumb {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #cccccc;
+	background-size: cover;
+	position: relative;
+}
+
+.drop-zone__thumb::after {
+	content: attr(data-label);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px 0;
+	color: #ffffff;
+	background: rgba(0, 0, 0, 0.75);
+	font-size: 14px;
+	text-align: center;
+}
+
+input {
+	width: 20%;;
+	margin: 230px 125px 50px;
+	background-color: #ffffff;
+	color: #000000;
+	border: #ffffff;
+	float: right;
+	cursor: pointer;
+
+	
+  }
+  
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	position: relative;
+	width: 97vw;
+	height: 30px;   /* Height of the footer */
+	overflow-y: hidden;
+}
+
+footer p {
+	font-size: 18px;
+	text-align: center;
+	margin-top: 5px;
+	bottom: 0;
+}
+  </style>
+
+	<section class="first-page">
+		<div class="first"></div>
+		<h1 class="heading">Please upload the image below.</h1>
+	</section>
+
+	
+	<section class="second-page">
+	  <div class="drop-zone">
+		<span class="drop-zone__prompt">Drop file here or click to upload</span>
+		<input type="file" name="myFile" class="drop-zone__input">
+	</div>
+
+	<h1 class="second_heading">Alzheimer and Brain Tumor detection using MRI scans</h1>
+	<p class="para">Please upload your MRI scan by clicking on Box or by draging the image to the Box.</p>
+
+	<form action="/predict" method="post" enctype="multipart/form-data">
+		
+		<a href="C:\Users\nikhi\Desktop\Project\UserHome\Results.html"><!-- <input type="file" name="image"> -->
+		<input type="submit" value="Predict">
+	</a>
+		</form>
+		<div class="results"></div>
+		</div>
+	</section>
+	  
+
+	<footer>
+		<p>&copy; 2023 My Website. All rights reserved.</p>
+	</footer>
+
+  <script>
+    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+      const dropZoneElement = inputElement.closest(".drop-zone");
+    
+      dropZoneElement.addEventListener("click", (e) => {
+        inputElement.click();
+      });
+    
+      inputElement.addEventListener("change", (e) => {
+        if (inputElement.files.length) {
+          updateThumbnail(dropZoneElement, inputElement.files[0]);
+        }
+      });
+    
+      dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+      });
+    
+      ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, (e) => {
+          dropZoneElement.classList.remove("drop-zone--over");
+        });
+      });
+    
+      dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+    
+        if (e.dataTransfer.files.length) {
+          inputElement.files = e.dataTransfer.files;
+          updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+        }
+    
+        dropZoneElement.classList.remove("drop-zone--over");
+      });
+    });
+    
+    /**
+     * Updates the thumbnail on a drop zone element.
+     *
+     * @param {HTMLElement} dropZoneElement
+     * @param {File} file
+     */
+    function updateThumbnail(dropZoneElement, file) {
+      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    
+      // First time - remove the prompt
+      if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+        dropZoneElement.querySelector(".drop-zone__prompt").remove();
+      }
+    
+      // First time - there is no thumbnail element, so lets create it
+      if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+      }
+    
+      thumbnailElement.dataset.label = file.name;
+    
+      // Show thumbnail for image files
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+    
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+        };
+      } else {
+        thumbnailElement.style.backgroundImage = null;
+      }
+    }
+  </script>
+
+	<!-- <script type="text/javascript" src="upload.js"></script> -->
+</body>
+</html>
